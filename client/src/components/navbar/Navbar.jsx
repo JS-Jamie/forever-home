@@ -1,4 +1,5 @@
 import './navbar.css';
+import { menuItems } from './menuItems';
 
 const Navbar = () => {
   return (
@@ -7,15 +8,24 @@ const Navbar = () => {
         <div className='logo'>
           <img
             className='logoImage'
-            src='https://cdn.pixabay.com/photo/2022/08/10/03/30/cat-7376274_960_720.png'
+            src='https://o.remove.bg/downloads/e3804c11-c010-40d5-b0b4-7bda801c47b1/cat-7376274_960_720-removebg-preview.png'
           />
-          <span className='orgName'>Forever Home</span>
+          <div className='orgName'>
+            <span className='orgNameText'>Forever Home</span>
+          </div>
         </div>
         <div className='menu'>
-          <span>ABOUT US</span>
-          <span>ADOPT</span>
-          <span>VOLUNTEER</span>
-          <span>GIVE</span>
+          <ul className='menuItems'>
+            {menuItems.map((menu, index) => {
+              return (
+                <li className='menuItemList' key={index}>
+                  <a href={menu.url} className='menuItemListText'>
+                    {menu.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     </div>
