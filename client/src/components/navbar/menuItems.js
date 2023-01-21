@@ -8,8 +8,8 @@ export const menuItems = [
         url: 'ourmission',
       },
       {
-        title: 'Volunteer Stories',
-        url: 'volunteerstories',
+        title: 'Rescued Animals',
+        url: 'rescuedanimals',
       },
     ],
   },
