@@ -1,75 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  height: 130px;
-}
-
 .navbar {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  color: #212529;
-  /* background-color: #8ed1fc; */
-  background-color: #ffd4d4;
+  height: 180px;
+  border: none;
+  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  color: #212529; */
+  /* background-color: #ffd4d4; */
 }
 
-.navContainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.logo {
-  flex: 4;
+.navbar-brand {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-
 .logoImage {
   width: 180px;
   height: 160px;
-  object-fit: contain;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
+  margin-left: -25px;
+  margin-right: 20px;
 }
 
-.orgName {
-  display: flex;
+.foreverHomeText {
+  font-weight: 1000;
+  font-size: 45px;
 }
 
-.orgNameText {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 35px;
-  white-space: nowrap;
-  margin-left: -15px;
-  margin-right: 30px;
-  cursor: pointer;
+.navbar-nav {
+  gap: 30px;
 }
 
 .menu {
-  flex: 4;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-right: 70px;
-}
-
-.menuItemSection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 60px;
-}
-
-.menuItemList {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  font-size: 25px;
+  font-size: 18px;
 }
