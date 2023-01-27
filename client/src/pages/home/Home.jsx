@@ -3,17 +3,17 @@ import AboutUs from '../../components/aboutUs/AboutUs';
 import Adoptables from '../../components/adoptables/Adoptables';
 import Footer from '../../components/footer/Footer';
 import Info from '../../components/info/Info';
-import Navbar from '../../components/navbar/Navbar';
+import NavbarInHeader from '../../components/navbar/Navbar';
 import SpecialAdoption from '../../components/specialAdoption/SpecialAdoption';
 import VolunteerAndFoster from '../../components/volunteerAndFoster/VolunteerAndFoster';
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
+      <NavbarInHeader />
       <SpecialAdoption />
-      <Adoptables />
       <AboutUs />
+      <Adoptables />
       <VolunteerAndFoster />
       <Info />
       <Footer />

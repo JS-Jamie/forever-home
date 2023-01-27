@@ -1,0 +1,21 @@
+.carouselItem {
+  height: 500px;
+  position: relative;
+}
+
+.image {
+  display: block;
+  position: absolute;
+  object-fit: cover;
+  align-items: center;
+  /* max-height: 280px; */
+  height: 600px;
+}
+
+.imageCat {
+  display: block;
+  align-items: center;
+  position: absolute;
+  object-fit: cover;
+  height: 500px;
+}
