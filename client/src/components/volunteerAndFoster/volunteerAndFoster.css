@@ -1,0 +1,17 @@
+.getInvolvedText {
+  text-align: center;
+  font-weight: 900;
+  font-size: 50px;
+  margin-top: 65px;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.cardImg:hover {
+  transform: scale(1.05);
+}
