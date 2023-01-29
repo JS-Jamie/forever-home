@@ -16,7 +16,7 @@ const Info = () => {
       <div className='infoSection'>
         <Row>
           <Col className='col'>
-            <h2 className='hours'>Adoption Hours</h2>
+            <h3 className='hours'>Adoption Hours</h3>
             <p>
               <strong>Mon-Fri: 9am-5pm</strong>
             </p>
@@ -28,8 +28,8 @@ const Info = () => {
           </Col>
 
           <Col className='col'>
-            <h2>Social Connect</h2>
-            <div>
+            <h3>Social Connect</h3>
+            <div className='icons'>
               <FontAwesomeIcon icon={faFacebook} />
               <FontAwesomeIcon icon={faInstagram} />
               <FontAwesomeIcon icon={faTwitter} />

@@ -20,3 +20,11 @@ hr {
 .hours {
   margin-bottom: 20px;
 }
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 30px;
+  margin-top: 20px;
+}

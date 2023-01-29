@@ -18,33 +18,38 @@ const NavbarInHeader = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ms-auto'>
-            <NavDropdown title='ADOPT' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-              <NavDropdown.Item href='#action/3.2'>
-                Another action
+            <NavDropdown className='menu' title='ADOPT' id='basic-nav-dropdown'>
+              <NavDropdown.Item className='menu' href='/beforeyouadopt'>
+                Before You Adopt
               </NavDropdown.Item>
-              <NavDropdown.Item href='#action/3.3'>Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href='#action/3.4'>
-                Separated link
+              <NavDropdown.Item className='menu' href='/adoptables'>
+                Adoptable Animals
               </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title='GET INVOLVED' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-              <NavDropdown.Item href='#action/3.2'>
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href='#action/3.3'>Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href='#action/3.4'>
-                Separated link
+              <NavDropdown.Item className='menu' href='/applicationprocess'>
+                Application Process
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown title='DONATE' id='basic-nav-dropdown'>
-              <NavDropdown.Item href='#action/3.1'>
+            <NavDropdown
+              className='menu'
+              title='GET INVOLVED'
+              id='basic-nav-dropdown'
+            >
+              <NavDropdown.Item className='menu' href='/volunteer'>
+                Volunteer
+              </NavDropdown.Item>
+              <NavDropdown.Item className='menu' href='/foster'>
+                Foster an Animal
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown
+              className='menu'
+              title='DONATE'
+              id='basic-nav-dropdown'
+            >
+              <NavDropdown.Item className='menu' href='/donateitems'>
                 Donate Items
               </NavDropdown.Item>
-              <NavDropdown.Item href='#action/3.3'>
+              <NavDropdown.Item className='menu' href='/financialdonation'>
                 Financial Donation
               </NavDropdown.Item>
             </NavDropdown>
