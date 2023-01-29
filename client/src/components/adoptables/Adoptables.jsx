@@ -15,7 +15,7 @@ const Adoptables = () => {
         />
         <Card.Body>
           <Button className='cardButton' variant='primary'>
-            See Adoptable Dogs
+            Adoptable Dogs ➤
           </Button>
         </Card.Body>
       </Card>
@@ -27,7 +27,7 @@ const Adoptables = () => {
         />
         <Card.Body>
           <Button className='cardButton' variant='primary'>
-            See Adoptable Cats
+            Adoptable Cats ➤
           </Button>
         </Card.Body>
       </Card>
@@ -41,7 +41,7 @@ const Adoptables = () => {
           <Card.Title></Card.Title>
 
           <Button className='cardButton' variant='primary'>
-            Other Adoptable Animals
+            Other Adoptable Animals ➤
           </Button>
         </Card.Body>
       </Card>
