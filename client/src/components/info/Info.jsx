@@ -47,7 +47,7 @@ const Info = () => {
           <Col className='col'>
             <p>3100 Pet Friends Rd</p>
             <p>Walnut Creek, CA 91234</p>
-            <p>Phone: (123)-456-7890</p>
+            <p>Phone: 123-456-7890</p>
           </Col>
         </Row>
       </div>
