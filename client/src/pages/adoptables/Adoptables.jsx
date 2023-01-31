@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './adoptables.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import Card from 'react-bootstrap/Card';
 import NavbarInHeader from '../../components/navbar/Navbar';
+import { animals } from '../../animalsData';
 
 const Adoptables = () => {
+  const [animalsList, setAnimalsList] = useState(animals);
+  const [speciesValue, setSpeciesValue] = useState('Any');
+
+  useEffect(() => {
+    console.log(speciesValue);
+    const animalsListCopy = [...animalsList];
+    const filteredResult = animalsListCopy.filter((animal) => {
+      return animal.species === speciesValue;
+    });
+
+    setAnimalsList(filteredResult);
+
+    // setAnimalsList((currentState) => {
+    //   currentState.filter((animal) => {
+    //     return animal.species === speciesValue;
+    //   });
+    // });
+  }, [speciesValue]);
+
   let active = 1;
   let items = [];
   for (let number = 1; number <= 5; number++) {
@@ -22,6 +42,10 @@ const Adoptables = () => {
       <Pagination>{items}</Pagination>
     </div>
   );
+
+  const handleClickSpecies = (e) => {
+    setSpeciesValue(e.target.value);
+  };
 
   return (
     <>
@@ -43,67 +67,49 @@ const Adoptables = () => {
             <Row>
               <Col>
                 <h3>Species</h3>
-                <Dropdown>
-                  <Dropdown.Toggle variant='light' id='dropdown-basic'>
-                    Any
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item href='/dogs'>
-                      <input type='checkbox' /> Dog
-                    </Dropdown.Item>
-                    <Dropdown.Item href='/cats'>
-                      <input type='checkbox' /> Cat
-                    </Dropdown.Item>
-                    <Dropdown.Item href='/others'>
-                      <input type='checkbox' /> Other
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <Form.Select aria-label='Species' onChange={handleClickSpecies}>
+                  <option value='Any'>Any</option>
+                  <option value='Dog'>Dog</option>
+                  <option value='Cat'>Cat</option>
+                  <option value='Other'>Other</option>
+                </Form.Select>
               </Col>
               <Col>
                 <h3>Sex</h3>
-                <Dropdown>
-                  <Dropdown.Toggle variant='light' id='dropdown-basic'>
-                    Any
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item href='#/action-1'>
-                      <input type='checkbox' /> Male
-                    </Dropdown.Item>
-                    <Dropdown.Item href='#/action-2'>
-                      <input type='checkbox' /> Female
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <Form.Select aria-label='Sex'>
+                  <option value='Any'>Any</option>
+                  <option value='Male'>Male</option>
+                  <option value='Female'>Female</option>
+                </Form.Select>
               </Col>
               <Col>
                 <h3>Age</h3>
-                <Dropdown>
-                  <Dropdown.Toggle variant='light' id='dropdown-basic'>
-                    Any
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item href='#/action-1'>
-                      <input type='checkbox' /> Senior
-                    </Dropdown.Item>
-                    <Dropdown.Item href='#/action-2'>
-                      <input type='checkbox' /> Adult
-                    </Dropdown.Item>
-                    <Dropdown.Item href='#/action-3'>
-                      <input type='checkbox' /> Young
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <Form.Select aria-label='Sex'>
+                  <option value='Any'>Any</option>
+                  <option value='Senior'>Senior</option>
+                  <option value='Adult'>Adult</option>
+                  <option value='Young'>Young</option>
+                </Form.Select>
               </Col>
             </Row>
           </div>
           {paginationBasic}
           <div className='photoCards'>
             <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
-              {Array.from({ length: 12 }).map((_, idx) => (
+              {animalsList.map((animal) => (
+                <Col key={animal.name}>
+                  <Card>
+                    <Card.Img variant='top' src={animal.photo} />
+                    <Card.Body>
+                      <Card.Title>{animal.name}</Card.Title>
+                      <Card.Text>{animal.sex}</Card.Text>
+                      <Card.Text>{animal.age}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+
+              {/* {Array.from({ length: 12 }).map((_, idx) => (
                 <Col>
                   <Card>
                     <Card.Img
@@ -116,7 +122,7 @@ const Adoptables = () => {
                     </Card.Body>
                   </Card>
                 </Col>
-              ))}
+              ))} */}
             </Row>
           </div>
           {paginationBasic}

@@ -1,4 +1,17 @@
 .titleSection {
   text-align: center;
-  background-color: lightgoldenrodyellow;
+  background-color: #e3f6ff;
+}
+
+.filterTools {
+  margin: 30px 0px 50px 0px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+  width: 40px;
+}
+
+.photoCards {
+  margin: 10px 0px 30px 0px;
 }

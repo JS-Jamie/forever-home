@@ -17,7 +17,7 @@ const NavbarInHeader = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='ms-auto'>
+          <Nav className='ms-auto menus'>
             <NavDropdown className='menu' title='ADOPT' id='basic-nav-dropdown'>
               <NavDropdown.Item className='menu' href='/beforeyouadopt'>
                 Before You Adopt

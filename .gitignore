@@ -13,6 +13,7 @@ node_modules
 /build
 
 # misc
+animalsData.js
 .DS_Store
 .env
 .env.local

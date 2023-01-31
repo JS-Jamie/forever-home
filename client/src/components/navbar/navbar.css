@@ -27,6 +27,11 @@
   gap: 30px;
 }
 
+.menus {
+  gap: 23px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
 .menu {
   font-size: 20px;
 }
