@@ -8,31 +8,31 @@ import NavbarInHeader from '../../components/navbar/Navbar';
 import { animals } from '../../animalsData';
 
 const Adoptables = () => {
-  const [animalsList, setAnimalsList] = useState(animals);
+  const [animalsList, setAnimalsList] = useState([]);
   const [speciesValue, setSpeciesValue] = useState('Any');
+  const [active, setActive] = useState(1);
 
   useEffect(() => {
-    console.log(speciesValue);
-    const animalsListCopy = [...animalsList];
-    const filteredResult = animalsListCopy.filter((animal) => {
-      return animal.species === speciesValue;
-    });
+    if (speciesValue === 'Any') {
+      setAnimalsList(animals);
+    } else {
+      const animalsListCopy = [...animals];
+      const filteredResult = animalsListCopy.filter((animal) => {
+        return animal.species === speciesValue;
+      });
 
-    setAnimalsList(filteredResult);
-
-    // setAnimalsList((currentState) => {
-    //   currentState.filter((animal) => {
-    //     return animal.species === speciesValue;
-    //   });
-    // });
+      setAnimalsList(filteredResult);
+    }
   }, [speciesValue]);
 
-  let active = 1;
   let items = [];
-  for (let number = 1; number <= 5; number++) {
+  const handlePagination = (e) => {
+    setActive(Number(e.target.innerText));
+  };
+  for (let i = 1; i <= Math.ceil(animalsList.length / 12); i++) {
     items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
+      <Pagination.Item onClick={handlePagination} key={i} active={i === active}>
+        {i}
       </Pagination.Item>
     );
   }
@@ -104,6 +104,7 @@ const Adoptables = () => {
                       <Card.Title>{animal.name}</Card.Title>
                       <Card.Text>{animal.sex}</Card.Text>
                       <Card.Text>{animal.age}</Card.Text>
+                      <Card.Text>{animal.species}</Card.Text>
                     </Card.Body>
                   </Card>
                 </Col>
