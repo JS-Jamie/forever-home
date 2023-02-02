@@ -19,9 +19,6 @@ const NavbarInHeader = () => {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ms-auto menus'>
             <NavDropdown className='menu' title='ADOPT' id='basic-nav-dropdown'>
-              <NavDropdown.Item className='menu' href='/beforeyouadopt'>
-                Before You Adopt
-              </NavDropdown.Item>
               <NavDropdown.Item className='menu' href='/adoptables'>
                 Adoptable Animals
               </NavDropdown.Item>

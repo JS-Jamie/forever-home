@@ -1,0 +1,16 @@
+.cardText {
+  margin-top: 5em;
+  margin-left: 1rem;
+  font-size: 70px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.cardImg {
+  object-fit: cover;
+  height: 500px;
+}
+
+.icon {
+  margin-right: 10px;
+}

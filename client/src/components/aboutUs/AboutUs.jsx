@@ -11,7 +11,7 @@ const AboutUs = () => {
         <h1 className='aboutUsText'>find forever homes for our animals.</h1>
       </div>
       <div>
-        <Button className='button' variant='info'>
+        <Button href='/aboutus' className='button' variant='info'>
           ABOUT US
         </Button>{' '}
       </div>
