@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import NavbarInHeader from '../../components/navbar/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import Info from '../../components/info/Info';
+import Footer from '../../components/footer/Footer';
 
 export const AboutUs = () => {
   return (
@@ -121,6 +123,8 @@ export const AboutUs = () => {
           </div>
         </div>
       </Container>
+      <Info />
+      <Footer />
     </>
   );
 };

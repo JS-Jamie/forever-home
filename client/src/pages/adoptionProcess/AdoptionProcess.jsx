@@ -3,6 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import NavbarInHeader from '../../components/navbar/Navbar';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
+import Info from '../../components/info/Info';
+import Footer from '../../components/footer/Footer';
 
 const AdoptionProcess = () => {
   return (
@@ -200,6 +202,8 @@ const AdoptionProcess = () => {
           </Accordion>
         </div>
       </Container>
+      <Info />
+      <Footer />
     </>
   );
 };
