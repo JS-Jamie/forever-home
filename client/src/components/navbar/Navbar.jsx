@@ -22,8 +22,8 @@ const NavbarInHeader = () => {
               <NavDropdown.Item className='menu' href='/adoptables'>
                 Adoptable Animals
               </NavDropdown.Item>
-              <NavDropdown.Item className='menu' href='/applicationprocess'>
-                Application Process
+              <NavDropdown.Item className='menu' href='/adoptionprocess'>
+                Adoption Process
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown

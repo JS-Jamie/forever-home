@@ -124,3 +124,5 @@ export const AboutUs = () => {
     </>
   );
 };
+
+export default AboutUs;
