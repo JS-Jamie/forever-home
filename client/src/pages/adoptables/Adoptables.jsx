@@ -6,6 +6,8 @@ import Pagination from 'react-bootstrap/Pagination';
 import Card from 'react-bootstrap/Card';
 import NavbarInHeader from '../../components/navbar/Navbar';
 import { animals } from '../../animalsData';
+import Info from '../../components/info/Info';
+import Footer from '../../components/footer/Footer';
 
 const Adoptables = () => {
   const [animalsList, setAnimalsList] = useState([]);
@@ -129,6 +131,8 @@ const Adoptables = () => {
           {paginationBasic}
         </div>
       </Container>
+      <Info />
+      <Footer />
     </>
   );
 };

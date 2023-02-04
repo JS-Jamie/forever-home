@@ -3,7 +3,7 @@ import Home from './pages/home/Home';
 import Adoptables from './pages/adoptables/Adoptables';
 import AboutUs from './pages/aboutUs/AboutUs';
 import AdoptionProcess from './pages/adoptionProcess/AdoptionProcess';
-import DonateItems from './pages/donateItems/DonateItems';
+import Donate from './pages/donate/Donate';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path='/adoptables' element={<Adoptables />} />
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/adoptionprocess' element={<AdoptionProcess />} />
-        <Route path='/donateitems' element={<DonateItems />} />
+        <Route path='/donate' element={<Donate />} />
       </Routes>
     </BrowserRouter>
   );

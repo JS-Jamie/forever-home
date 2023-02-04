@@ -1,17 +1,13 @@
-.cardText {
+.cardImg {
+  object-fit: cover;
+  height: 500px;
+}
+
+.title {
   margin-top: 5.7em;
   margin-left: 1rem;
   font-size: 65px;
   font-weight: 900;
   white-space: nowrap;
   text-shadow: 0.02em 0 black;
-}
-
-.cardImg {
-  object-fit: cover;
-  height: 500px;
-}
-
-.icon {
-  margin-right: 10px;
 }

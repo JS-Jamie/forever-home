@@ -38,18 +38,9 @@ const NavbarInHeader = () => {
                 Foster an Animal
               </NavDropdown.Item>
             </NavDropdown>
-            <NavDropdown
-              className='menu'
-              title='DONATE'
-              id='basic-nav-dropdown'
-            >
-              <NavDropdown.Item className='menu' href='/donateitems'>
-                Donate Items
-              </NavDropdown.Item>
-              <NavDropdown.Item className='menu' href='/financialdonation'>
-                Financial Donation
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link className='menu' href='/donate'>
+              DONATE
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
