@@ -13,6 +13,10 @@
 }
 
 .cardButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  font-size: 22px;
+  font-size: 21px;
+  height: 42px;
 }
