@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-
+import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -44,6 +44,7 @@ const Foster = () => {
         <div>
           <h1 className='mt-5 mb-4 text-center'>Become a Foster Parent</h1>
           <p className='mb-5 text-center'>
+            Discover the joys of caring for dogs or cats in your home! <br />
             Fostering is a wonderful opportunity to volunteer together as a
             family or care for a pet without a long-term adoption commitment.
           </p>
@@ -52,20 +53,27 @@ const Foster = () => {
           <Row>
             <Col>
               <Card>
-                <Card.Body>
+                <Card.Body className='p-4'>
                   <Card.Title>What’s involved?</Card.Title>
                   <Card.Text>
-                    Fostering can last from a few days to several months
-                    depending on the needs of the animals and your availability.
-                    Extra training is provided for unique circumstances, and
-                    medical assistance and questions are handled quickly. All
-                    veterinary care, food and animal supplies are provided by
-                    Forever Home.
+                    <p>
+                      Fostering can last from a few days to several months
+                      depending on the needs of the animals and your
+                      availability.
+                    </p>
+                    <p>
+                      Extra training is provided for unique circumstances, and
+                      medical assistance and questions are handled quickly.
+                    </p>
+                    <p>
+                      All veterinary care, food and animal supplies are provided
+                      by Forever Home.
+                    </p>
                   </Card.Text>
                 </Card.Body>
               </Card>
               <Card>
-                <Card.Body>
+                <Card.Body className='p-4'>
                   <Card.Title>Who can foster?</Card.Title>
                   <Card.Text>
                     <p>
@@ -135,7 +143,7 @@ const Foster = () => {
             </Col>
             <Col>
               <Card>
-                <Card.Body>
+                <Card.Body className='p-4'>
                   <Card.Title>Whom can you help?</Card.Title>
                   <Card.Text>
                     <p>
@@ -174,13 +182,29 @@ const Foster = () => {
                 </Card.Body>
               </Card>
               <Card>
-                <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                <Card.Img
+                  style={{ maxHeight: '180px', objectFit: 'cover' }}
+                  variant='top'
+                  src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+                />
+                <Card.Body className='p-4'>
+                  <Card.Title>Foster Orientation</Card.Title>
                   <Card.Text>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
+                    <p>
+                      Signing up for a foster orientation is the first step to
+                      becoming a foster family.
+                    </p>
+                    <p>
+                      Hear about the realities and rewards of this unique
+                      volunteer role from our team. Bring your questions to this
+                      free, no-obligation information session.
+                    </p>
                   </Card.Text>
+                  <div className='d-grid gap-2'>
+                    <Button variant='info' size='lg'>
+                      Sign Me Up!
+                    </Button>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
