@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import Info from '../../components/info/Info';
 import Footer from '../../components/footer/Footer';
+import AdoptionFees from '../../components/adoptionFees/AdoptionFees';
 
 const AdoptionProcess = () => {
   return (
@@ -68,7 +69,7 @@ const AdoptionProcess = () => {
                   Availability of particular animals cannot be guaranteed.
                 </p>
               </Card.Text>
-              <Card.Link href='#'>View Available Animals</Card.Link>
+              <Card.Link href='/adoptables'>View Available Animals</Card.Link>
             </Card.Body>
           </Card>
         </div>
@@ -113,41 +114,7 @@ const AdoptionProcess = () => {
                 <h4>Adoption Fees (Cats and Dogs)</h4>
               </Accordion.Header>
               <Accordion.Body>
-                <div className='mb-4'>
-                  All animals are spayed or neutered, current on vaccinations,
-                  microchipped, de-wormed, and given flea/tick preventative.
-                  Animals are sent home with a welcome home supply of Purina
-                  food. Dogs 6 months and older are tested for heartworm, and
-                  all dogs are started on heartworm preventative. Dog adopters
-                  are offered a discount on training classes and puppy socials
-                  with ARF’s skilled instructors. All cats are tested for FeLV,
-                  and all cats older than 6 months are tested for FIV.
-                </div>
-                <div>
-                  <h4>Adoption Fees</h4>
-                  <Row>
-                    <Col>
-                      <ul>
-                        <li>Cat – $125</li>
-                        <li>Special Needs Cat – $75</li>
-                        <li>Senior Cat (Seven years or older) – $75</li>
-                        <li>Kitten (six months or older) – $175</li>
-                        <li>Special Needs Kitten – $100</li>
-                        <li>Two Kittens – $300</li>
-                        <li>Two Cats – $200</li>
-                      </ul>
-                    </Col>
-                    <Col>
-                      <ul>
-                        <li>Dog – $250</li>
-                        <li>Special Needs Dog – $150</li>
-                        <li>Senior Dog (Seven years or older) – $150</li>
-                        <li>Puppy (six months or older) – $375</li>
-                        <li>Special Needs Puppy – $200</li>
-                      </ul>
-                    </Col>
-                  </Row>
-                </div>
+                <AdoptionFees />
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey='2'>
@@ -164,8 +131,8 @@ const AdoptionProcess = () => {
               </Accordion.Header>
               <Accordion.Body>
                 <p>
-                  Did you adopt an animal from ARF and need help with a medical,
-                  behavioral, or other question? Contact our team.
+                  Did you adopt an animal from Forever Home and need help with a
+                  medical, behavioral, or other question? Contact our team.
                 </p>
                 <ul>
                   <li>Behavior and training helpline: (123) 456-7777 </li>

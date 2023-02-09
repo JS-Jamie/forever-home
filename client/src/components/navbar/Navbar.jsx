@@ -11,13 +11,20 @@ const NavbarInHeader = () => {
   return (
     <Navbar expand='lg'>
       <Container>
-        <Navbar.Brand href='/'>
-          <img src={logoImg} className='logoImage' />
-          <span className='foreverHomeText'>Forever Home</span>
+        <Navbar.Brand>
+          <img src={logoImg} className='logoImage' href='/' />
+          <span className='foreverHomeText'>
+            <a href='/' style={{ textDecoration: 'none', color: 'black' }}>
+              Forever Home
+            </a>
+          </span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ms-auto menus'>
+            <Nav.Link className='menu' href='/aboutus'>
+              ABOUT US
+            </Nav.Link>
             <NavDropdown className='menu' title='ADOPT' id='basic-nav-dropdown'>
               <NavDropdown.Item className='menu' href='/adoptables'>
                 Adoptable Animals

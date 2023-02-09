@@ -8,6 +8,7 @@ import NavbarInHeader from '../../components/navbar/Navbar';
 import { animals } from '../../animalsData';
 import Info from '../../components/info/Info';
 import Footer from '../../components/footer/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Adoptables = () => {
   const [animalsList, setAnimalsList] = useState([]);
@@ -26,6 +27,8 @@ const Adoptables = () => {
       setAnimalsList(filteredResult);
     }
   }, [speciesValue]);
+
+  const navigate = useNavigate();
 
   let items = [];
   const handlePagination = (e) => {
@@ -49,6 +52,10 @@ const Adoptables = () => {
     setSpeciesValue(e.target.value);
   };
 
+  const handleClick = () => {
+    navigate('/profile');
+  };
+
   return (
     <>
       <NavbarInHeader />
@@ -61,7 +68,7 @@ const Adoptables = () => {
           </p>
           <p>
             Learn more about our{' '}
-            <a href='/applicationprocess'>adoption process.</a>
+            <a href='/adoptionprocess'>adoption process.</a>
           </p>
         </div>
         <div className='animalListSection'>
@@ -100,7 +107,7 @@ const Adoptables = () => {
             <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
               {animalsList.map((animal) => (
                 <Col key={animal.name}>
-                  <Card>
+                  <Card onClick={handleClick} style={{ cursor: 'pointer' }}>
                     <Card.Img variant='top' src={animal.photo} />
                     <Card.Body>
                       <Card.Title>{animal.name}</Card.Title>
@@ -111,21 +118,6 @@ const Adoptables = () => {
                   </Card>
                 </Col>
               ))}
-
-              {/* {Array.from({ length: 12 }).map((_, idx) => (
-                <Col>
-                  <Card>
-                    <Card.Img
-                      variant='top'
-                      src='https://images.unsplash.com/photo-1607028649151-cd1fd5291120?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHN0cmF5fGVufDB8MXwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-                    />
-                    <Card.Body>
-                      <Card.Title>Pet Name</Card.Title>
-                      <Card.Text>Description</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))} */}
             </Row>
           </div>
           {paginationBasic}
