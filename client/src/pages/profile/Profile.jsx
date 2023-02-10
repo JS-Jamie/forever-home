@@ -21,22 +21,7 @@ const Profile = () => {
           />{' '}
           <Card className='w-auto'>
             <Card.Body>
-              <p>
-                Sixteen-week-old Bella is a very sweet girl who has lots of love
-                to share!
-              </p>
-              <p>
-                Her favorite activities are playing fetch and rolling around in
-                your lap for cuddles! She currently weighs 5 pounds.
-              </p>
-              <p>
-                Bella’s adopter must be at least 18 years old with valid
-                state-issued identification.
-              </p>
-              <p>
-                Forever Home encourages family members to participate in the
-                adoption process, especially children and family dogs.
-              </p>
+              <p>Description</p>
             </Card.Body>
           </Card>
         </div>
