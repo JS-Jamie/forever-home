@@ -12,7 +12,16 @@ const Profile = () => {
     <>
       <NavbarInHeader />
       <Container>
-        <div>profile</div>
+        <div
+          style={{ height: '200px', backgroundColor: '#b6e8fa' }}
+          className='mb-4 d-flex justify-content-center align-items-center'
+        >
+          <h1 className='text-center' style={{ fontSize: '50px' }}>
+            Bella
+            <br />
+            <span style={{ fontSize: '20px' }}>Chihuahua / Female / Young</span>
+          </h1>
+        </div>
         <div className='d-flex flex-row mb-5'>
           <Image
             style={{ width: '50vw' }}
