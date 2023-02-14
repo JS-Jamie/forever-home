@@ -6,6 +6,7 @@ import NavbarInHeader from '../../components/navbar/Navbar';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import AdoptionFees from '../../components/adoptionFees/AdoptionFees';
+import { animals } from '../../animalsData';
 
 const Profile = () => {
   return (
@@ -24,13 +25,14 @@ const Profile = () => {
         </div>
         <div className='d-flex flex-row mb-5'>
           <Image
-            style={{ width: '50vw' }}
+            style={{ width: '50vw', height: '50vh' }}
             rounded={true}
             src='https://images.unsplash.com/photo-1565353919366-554312dd0e86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
           />{' '}
           <Card className='w-auto'>
             <Card.Body>
-              <p>Description</p>
+              <h2>{animals[5].name}'s Story</h2>
+              <p>{animals[5].desc}</p>
             </Card.Body>
           </Card>
         </div>
