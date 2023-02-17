@@ -6,6 +6,7 @@ import Pagination from 'react-bootstrap/Pagination';
 import Card from 'react-bootstrap/Card';
 import NavbarInHeader from '../../components/navbar/Navbar';
 import { animals } from '../../animalsData';
+import axios from 'axios';
 import Info from '../../components/info/Info';
 import Footer from '../../components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -15,9 +16,15 @@ const Adoptables = () => {
   const [speciesValue, setSpeciesValue] = useState('Any');
   const [active, setActive] = useState(1);
 
+  const getAnimals = async () => {
+    const res = await axios.get('/api/animals');
+    console.log(res);
+    setAnimalsList(res.data.animals);
+  };
+
   useEffect(() => {
     if (speciesValue === 'Any') {
-      setAnimalsList(animals);
+      getAnimals();
     } else {
       const animalsListCopy = [...animals];
       const filteredResult = animalsListCopy.filter((animal) => {
@@ -34,7 +41,7 @@ const Adoptables = () => {
   const handlePagination = (e) => {
     setActive(Number(e.target.innerText));
   };
-  for (let i = 1; i <= Math.ceil(animalsList.length / 12); i++) {
+  for (let i = 1; i <= Math.ceil(animalsList?.length / 12); i++) {
     items.push(
       <Pagination.Item onClick={handlePagination} key={i} active={i === active}>
         {i}
@@ -105,10 +112,10 @@ const Adoptables = () => {
           {paginationBasic}
           <div className='photoCards'>
             <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
-              {animalsList.map((animal) => (
+              {animalsList?.map((animal) => (
                 <Col key={animal.name}>
                   <Card onClick={handleClick} style={{ cursor: 'pointer' }}>
-                    <Card.Img variant='top' src={animal.photo} />
+                    <Card.Img variant='top' src={animal.image} />
                     <Card.Body>
                       <Card.Title>{animal.name}</Card.Title>
                       <Card.Text>{animal.sex}</Card.Text>
