@@ -18,7 +18,6 @@ const Adoptables = () => {
 
   const getAnimals = async () => {
     const res = await axios.get('/api/animals');
-    console.log(res);
     setAnimalsList(res.data.animals);
   };
 
