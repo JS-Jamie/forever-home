@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
 import Footer from '../../components/footer/Footer';
 import Info from '../../components/info/Info';
@@ -6,9 +7,23 @@ import NavbarInHeader from '../../components/navbar/Navbar';
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import AdoptionFees from '../../components/adoptionFees/AdoptionFees';
-import { animals } from '../../animalsData';
+import { useParams } from 'react-router-dom';
 
 const Profile = () => {
+  const [animal, setAnimal] = useState({});
+
+  const params = useParams();
+
+  const getAnimal = async () => {
+    const res = await axios.get(`/api/animals/${params.animalId}`);
+
+    setAnimal(res.data);
+  };
+
+  useEffect(() => {
+    getAnimal();
+  }, [params.animalId]);
+
   return (
     <>
       <NavbarInHeader />
@@ -18,21 +33,23 @@ const Profile = () => {
           className='mb-4 d-flex justify-content-center align-items-center'
         >
           <h1 className='text-center' style={{ fontSize: '50px' }}>
-            Bella
+            {animal.name}
             <br />
-            <span style={{ fontSize: '20px' }}>Chihuahua / Female / Young</span>
+            <span style={{ fontSize: '20px' }}>
+              {animal.breed} / {animal.sex} / {animal.age}
+            </span>
           </h1>
         </div>
         <div className='d-flex flex-row mb-5'>
           <Image
             style={{ width: '50vw', height: '50vh' }}
             rounded={true}
-            src='https://images.unsplash.com/photo-1565353919366-554312dd0e86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'
+            src={animal.image}
           />{' '}
           <Card className='w-auto'>
             <Card.Body>
-              <h2>{animals[5].name}'s Story</h2>
-              <p>{animals[5].desc}</p>
+              <h2>{animal.name}'s Story</h2>
+              <p>{animal.description}</p>
             </Card.Body>
           </Card>
         </div>

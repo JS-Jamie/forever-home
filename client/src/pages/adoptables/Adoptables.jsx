@@ -5,42 +5,49 @@ import Form from 'react-bootstrap/Form';
 import Pagination from 'react-bootstrap/Pagination';
 import Card from 'react-bootstrap/Card';
 import NavbarInHeader from '../../components/navbar/Navbar';
-import { animals } from '../../animalsData';
 import axios from 'axios';
 import Info from '../../components/info/Info';
 import Footer from '../../components/footer/Footer';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Adoptables = () => {
   const [animalsList, setAnimalsList] = useState([]);
   const [speciesValue, setSpeciesValue] = useState('Any');
   const [active, setActive] = useState(1);
+  const [page, setPage] = useState(0);
+  const [pages, setPages] = useState(0);
+
+  const params = useParams();
+  const navigate = useNavigate();
 
   const getAnimals = async () => {
-    const res = await axios.get('/api/animals');
+    const res = await axios.get(`/api/animals?pageNumber=${params.pageNumber}`);
     setAnimalsList(res.data.animals);
+    setPage(res.data.page);
+    setPages(res.data.pages);
+    setActive(res.data.page);
   };
 
   useEffect(() => {
     if (speciesValue === 'Any') {
       getAnimals();
     } else {
-      const animalsListCopy = [...animals];
+      const animalsListCopy = [Adoptables];
       const filteredResult = animalsListCopy.filter((animal) => {
         return animal.species === speciesValue;
       });
-
       setAnimalsList(filteredResult);
     }
-  }, [speciesValue]);
-
-  const navigate = useNavigate();
+  }, [speciesValue, page]);
 
   let items = [];
+
   const handlePagination = (e) => {
     setActive(Number(e.target.innerText));
+    setPage(e.target.innerText);
+    navigate(`/adoptables/page/${e.target.innerText}`);
   };
-  for (let i = 1; i <= Math.ceil(animalsList?.length / 12); i++) {
+  for (let i = 1; i <= pages; i++) {
     items.push(
       <Pagination.Item onClick={handlePagination} key={i} active={i === active}>
         {i}
@@ -56,10 +63,6 @@ const Adoptables = () => {
 
   const handleClickSpecies = (e) => {
     setSpeciesValue(e.target.value);
-  };
-
-  const handleClick = () => {
-    navigate('/profile');
   };
 
   return (
@@ -113,7 +116,12 @@ const Adoptables = () => {
             <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
               {animalsList?.map((animal) => (
                 <Col key={animal.name}>
-                  <Card onClick={handleClick} style={{ cursor: 'pointer' }}>
+                  <Card
+                    onClick={() => {
+                      navigate(`/profile/${animal._id}`);
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <Card.Img variant='top' src={animal.image} />
                     <Card.Body>
                       <Card.Title>{animal.name}</Card.Title>

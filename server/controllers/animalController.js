@@ -31,13 +31,15 @@ const getAnimalById = asyncHandler(async (req, res) => {
 //@desc Create an animal
 //@route POST /api/animals
 const createAnimal = asyncHandler(async (req, res) => {
+  const { name, breed, sex, age, image, description } = req.body;
+
   const animal = new Animal({
-    name: 'Sample name',
-    breed: 'Mix',
-    sex: 'Male',
-    age: 'Adult',
-    image: '/images.sample.jpg',
-    description: 'Sample description',
+    name,
+    breed,
+    sex,
+    age,
+    image,
+    description,
   });
 
   const createdAnimal = await animal.save();

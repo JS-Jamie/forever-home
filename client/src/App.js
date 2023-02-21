@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/aboutus' element={<AboutUs />} />
-        <Route path='/adoptables' element={<Adoptables />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route path='/adoptables/page/:pageNumber' element={<Adoptables />} />
+        <Route path='/profile/:animalId' element={<Profile />} />
         <Route path='/adoptionprocess' element={<AdoptionProcess />} />
         <Route path='/volunteer' element={<Volunteer />} />
         <Route path='/foster' element={<Foster />} />
