@@ -11,8 +11,13 @@ import Footer from '../../components/footer/Footer';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const Adoptables = () => {
+  //Filter animals
   const [animalsList, setAnimalsList] = useState([]);
   const [speciesValue, setSpeciesValue] = useState('Any');
+  const [sexValue, setSexValue] = useState('Any');
+  const [ageValue, setAgeValue] = useState('Any');
+
+  //Pagination
   const [active, setActive] = useState(1);
   const [page, setPage] = useState(0);
   const [pages, setPages] = useState(0);
@@ -20,33 +25,79 @@ const Adoptables = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-  const getAnimals = async () => {
+  const fetchAnimals = async () => {
+    console.log('Any string', 'striggggggggggggg');
     const res = await axios.get(`/api/animals?pageNumber=${params.pageNumber}`);
     setAnimalsList(res.data.animals);
+    if (speciesValue !== 'Any' || sexValue !== 'Any' || ageValue !== 'Any') {
+      const animalsListCopy = [...animalsList];
+      const filteredResult = handleFilter(
+        animalsListCopy,
+        speciesValue,
+        sexValue,
+        ageValue
+      );
+
+      setAnimalsList(filteredResult);
+    } else {
+      // setAnimalsList(res.data.animals);
+    }
+
     setPage(res.data.page);
     setPages(res.data.pages);
     setActive(res.data.page);
   };
 
-  useEffect(() => {
-    if (speciesValue === 'Any') {
-      getAnimals();
-    } else {
-      const animalsListCopy = [Adoptables];
-      const filteredResult = animalsListCopy.filter((animal) => {
-        return animal.species === speciesValue;
-      });
-      setAnimalsList(filteredResult);
-    }
-  }, [speciesValue, page]);
+  const filterBySpecies = (animalObj) => {
+    return animalObj.species === speciesValue;
+  };
 
-  let items = [];
+  const filterBySex = (animalObj) => {
+    return animalObj.sex === sexValue;
+  };
+
+  const filterByAge = (animalObj) => {
+    return animalObj.age === ageValue;
+  };
+
+  const handleFilter = (arr, fBySpecies, fBySex, fByAge) => {
+    if (fBySpecies === 'Any' && fBySex === 'Any' && fByAge === 'Any') {
+      return arr;
+    } else {
+      const filteredBySpecies = arr.filter(filterBySpecies);
+      const filteredBySex = arr.filter(filterBySex);
+      const filteredByAge = arr.filter(filterByAge);
+      const combinedResult = [
+        ...filteredBySpecies,
+        ...filteredBySex,
+        ...filteredByAge,
+      ];
+
+      const result = combinedResult.filter((item, index, originalArray) => {
+        return (
+          index ===
+          originalArray.findIndex((obj) => {
+            return item._id === obj._id;
+          })
+        );
+      });
+
+      return result;
+    }
+  };
+
+  useEffect(() => {
+    fetchAnimals();
+  }, [speciesValue, sexValue, ageValue, page]);
 
   const handlePagination = (e) => {
     setActive(Number(e.target.innerText));
     setPage(e.target.innerText);
     navigate(`/adoptables/page/${e.target.innerText}`);
   };
+
+  let items = [];
+
   for (let i = 1; i <= pages; i++) {
     items.push(
       <Pagination.Item onClick={handlePagination} key={i} active={i === active}>
@@ -63,6 +114,14 @@ const Adoptables = () => {
 
   const handleClickSpecies = (e) => {
     setSpeciesValue(e.target.value);
+  };
+
+  const handleClickSex = (e) => {
+    setSexValue(e.target.value);
+  };
+
+  const handleClickAge = (e) => {
+    setAgeValue(e.target.value);
   };
 
   return (
@@ -94,7 +153,7 @@ const Adoptables = () => {
               </Col>
               <Col>
                 <h3>Sex</h3>
-                <Form.Select aria-label='Sex'>
+                <Form.Select aria-label='Sex' onChange={handleClickSex}>
                   <option value='Any'>Any</option>
                   <option value='Male'>Male</option>
                   <option value='Female'>Female</option>
@@ -102,7 +161,7 @@ const Adoptables = () => {
               </Col>
               <Col>
                 <h3>Age</h3>
-                <Form.Select aria-label='Sex'>
+                <Form.Select aria-label='Age' onChange={handleClickAge}>
                   <option value='Any'>Any</option>
                   <option value='Senior'>Senior</option>
                   <option value='Adult'>Adult</option>
