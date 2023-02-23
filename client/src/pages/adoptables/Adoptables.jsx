@@ -94,7 +94,7 @@ const Adoptables = () => {
 
   useEffect(() => {
     if (animalsList.length === 0) {
-      setNotFoundText('No animals found.');
+      setNotFoundText('No results match your search criteria.');
     } else {
       setNotFoundText('');
     }
