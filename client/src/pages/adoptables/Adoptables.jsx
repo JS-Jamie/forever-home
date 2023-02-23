@@ -16,6 +16,7 @@ const Adoptables = () => {
   const [speciesValue, setSpeciesValue] = useState('Any');
   const [sexValue, setSexValue] = useState('Any');
   const [ageValue, setAgeValue] = useState('Any');
+  const [notFoundText, setNotFoundText] = useState('');
 
   //Pagination
   const [active, setActive] = useState(1);
@@ -26,62 +27,63 @@ const Adoptables = () => {
   const navigate = useNavigate();
 
   const fetchAnimals = async () => {
-    console.log('Any string', 'striggggggggggggg');
+    setAnimalsList([]);
     const res = await axios.get(`/api/animals?pageNumber=${params.pageNumber}`);
-    setAnimalsList(res.data.animals);
-    if (speciesValue !== 'Any' || sexValue !== 'Any' || ageValue !== 'Any') {
-      const animalsListCopy = [...animalsList];
-      const filteredResult = handleFilter(
-        animalsListCopy,
-        speciesValue,
-        sexValue,
-        ageValue
-      );
+    // setAnimalsList(res.data.animals);
+    // if (speciesValue !== 'Any' || sexValue !== 'Any' || ageValue !== 'Any') {
+    const animalsListCopy = [...res.data.animals];
+    const filteredResult = handleFilter(
+      animalsListCopy,
+      speciesValue,
+      sexValue,
+      ageValue
+    );
 
-      setAnimalsList(filteredResult);
-    } else {
-      // setAnimalsList(res.data.animals);
-    }
+    setAnimalsList(filteredResult);
+    // } else {
+    //   setAnimalsList(res.data.animals);
+    // }
 
     setPage(res.data.page);
     setPages(res.data.pages);
     setActive(res.data.page);
   };
 
-  const filterBySpecies = (animalObj) => {
-    return animalObj.species === speciesValue;
-  };
+  const filterBySpecies =
+    speciesValue === 'Any'
+      ? (animalObj) => {
+          return animalObj;
+        }
+      : (animalObj) => {
+          return animalObj.species === speciesValue;
+        };
 
-  const filterBySex = (animalObj) => {
-    return animalObj.sex === sexValue;
-  };
+  const filterBySex =
+    sexValue === 'Any'
+      ? (animalObj) => {
+          return animalObj;
+        }
+      : (animalObj) => {
+          return animalObj.sex === sexValue;
+        };
 
-  const filterByAge = (animalObj) => {
-    return animalObj.age === ageValue;
-  };
+  const filterByAge =
+    ageValue === 'Any'
+      ? (animalObj) => {
+          return animalObj;
+        }
+      : (animalObj) => {
+          return animalObj.age === ageValue;
+        };
 
   const handleFilter = (arr, fBySpecies, fBySex, fByAge) => {
     if (fBySpecies === 'Any' && fBySex === 'Any' && fByAge === 'Any') {
       return arr;
     } else {
-      const filteredBySpecies = arr.filter(filterBySpecies);
-      const filteredBySex = arr.filter(filterBySex);
-      const filteredByAge = arr.filter(filterByAge);
-      const combinedResult = [
-        ...filteredBySpecies,
-        ...filteredBySex,
-        ...filteredByAge,
-      ];
-
-      const result = combinedResult.filter((item, index, originalArray) => {
-        return (
-          index ===
-          originalArray.findIndex((obj) => {
-            return item._id === obj._id;
-          })
-        );
-      });
-
+      const result = arr
+        .filter(filterBySpecies)
+        .filter(filterBySex)
+        .filter(filterByAge);
       return result;
     }
   };
@@ -89,6 +91,14 @@ const Adoptables = () => {
   useEffect(() => {
     fetchAnimals();
   }, [speciesValue, sexValue, ageValue, page]);
+
+  useEffect(() => {
+    if (animalsList.length === 0) {
+      setNotFoundText('No animals found.');
+    } else {
+      setNotFoundText('');
+    }
+  }, [animalsList.length]);
 
   const handlePagination = (e) => {
     setActive(Number(e.target.innerText));
@@ -171,6 +181,7 @@ const Adoptables = () => {
             </Row>
           </div>
           {paginationBasic}
+          {notFoundText ? notFoundText : ''}
           <div className='photoCards'>
             <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
               {animalsList?.map((animal) => (
