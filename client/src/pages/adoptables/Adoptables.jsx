@@ -17,6 +17,7 @@ const Adoptables = () => {
   const [sexValue, setSexValue] = useState('Any');
   const [ageValue, setAgeValue] = useState('Any');
   const [notFoundText, setNotFoundText] = useState('');
+  const [loading, setLoading] = useState(false);
 
   //Pagination
   const [active, setActive] = useState(1);
@@ -28,9 +29,8 @@ const Adoptables = () => {
 
   const fetchAnimals = async () => {
     setAnimalsList([]);
+    setLoading(true);
     const res = await axios.get(`/api/animals?pageNumber=${params.pageNumber}`);
-    // setAnimalsList(res.data.animals);
-    // if (speciesValue !== 'Any' || sexValue !== 'Any' || ageValue !== 'Any') {
     const animalsListCopy = [...res.data.animals];
     const filteredResult = handleFilter(
       animalsListCopy,
@@ -40,13 +40,11 @@ const Adoptables = () => {
     );
 
     setAnimalsList(filteredResult);
-    // } else {
-    //   setAnimalsList(res.data.animals);
-    // }
 
     setPage(res.data.page);
     setPages(res.data.pages);
     setActive(res.data.page);
+    setLoading(false);
   };
 
   const filterBySpecies =
@@ -94,11 +92,15 @@ const Adoptables = () => {
 
   useEffect(() => {
     if (animalsList.length === 0) {
-      setNotFoundText('No results match your search criteria.');
+      if (loading) {
+        setNotFoundText('Loading...');
+      } else {
+        setNotFoundText('No results match your search criteria.');
+      }
     } else {
       setNotFoundText('');
     }
-  }, [animalsList.length]);
+  }, [animalsList.length, loading]);
 
   const handlePagination = (e) => {
     setActive(Number(e.target.innerText));
