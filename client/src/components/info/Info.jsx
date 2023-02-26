@@ -30,18 +30,24 @@ const Info = () => {
           <Col className='col'>
             <h3>Social Connect</h3>
             <div className='icons'>
-              <FontAwesomeIcon icon={faFacebook} />
-              <FontAwesomeIcon icon={faInstagram} />
-              <FontAwesomeIcon icon={faTwitter} />
-              <FontAwesomeIcon icon={faYoutube} />
+              <FontAwesomeIcon
+                icon={faFacebook}
+                style={{ cursor: 'Pointer' }}
+              />
+              <FontAwesomeIcon
+                icon={faInstagram}
+                style={{ cursor: 'Pointer' }}
+              />
+              <FontAwesomeIcon icon={faTwitter} style={{ cursor: 'Pointer' }} />
+              <FontAwesomeIcon icon={faYoutube} style={{ cursor: 'Pointer' }} />
             </div>
           </Col>
 
           <Col className='col'>
-            <p>ABOUT US</p>
-            <p>CONTACT US</p>
-            <p>CAREER</p>
-            <p>PRIVACY POLICY</p>
+            <p style={{ cursor: 'Pointer' }}>ABOUT US</p>
+            <p style={{ cursor: 'Pointer' }}>CONTACT US</p>
+            <p style={{ cursor: 'Pointer' }}>CAREER</p>
+            <p style={{ cursor: 'Pointer' }}>PRIVACY POLICY</p>
           </Col>
 
           <Col className='col'>
