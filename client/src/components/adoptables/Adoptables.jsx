@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Row } from 'react-bootstrap';
 import './adoptables.css';
 import { Container } from 'react-bootstrap';
@@ -6,6 +7,12 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const Adoptables = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('adoptables/page/1');
+  };
+
   return (
     <Container className='adoptablesCardsSection'>
       <Row xs={1} s={2} md={3} className='g-4'>
@@ -17,7 +24,11 @@ const Adoptables = () => {
               src='https://cdn.pixabay.com/photo/2017/10/02/21/56/dog-2810484_960_720.jpg'
             />
             <Card.Body>
-              <Button className='cardButton' variant='primary'>
+              <Button
+                onClick={handleClick}
+                className='cardButton'
+                variant='primary'
+              >
                 Adoptable Dogs ➤
               </Button>
             </Card.Body>
@@ -31,7 +42,11 @@ const Adoptables = () => {
               src='https://cdn.pixabay.com/photo/2018/01/28/12/37/cat-3113513__340.jpg'
             />
             <Card.Body>
-              <Button className='cardButton' variant='primary'>
+              <Button
+                onClick={handleClick}
+                className='cardButton'
+                variant='primary'
+              >
                 Adoptable Cats ➤
               </Button>
             </Card.Body>
@@ -45,7 +60,11 @@ const Adoptables = () => {
               src='https://cdn.pixabay.com/photo/2022/11/09/10/59/turtle-7580318__340.jpg'
             />
             <Card.Body>
-              <Button className='cardButton' variant='primary'>
+              <Button
+                onClick={handleClick}
+                className='cardButton'
+                variant='primary'
+              >
                 Other Animals ➤
               </Button>
             </Card.Body>
