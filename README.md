@@ -3,7 +3,7 @@
 .
 
 
-![gifOfHomePage](https://media.giphy.com/media/ItYMuR1jBMrPW0kGVv/giphy.gif)
+![gifOfHomePage]()
 
 
 
