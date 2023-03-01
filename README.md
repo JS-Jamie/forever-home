@@ -7,12 +7,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 
-### Features and Functionalities
+### :star2: Features and Functionalities
 
 ...
 
-### Tech/Framework Used
+### :computer: Tech/Framework Used
 ...
 
-### API Endpoints
+### :page_with_curl: API Endpoints
 ...
