@@ -11,19 +11,20 @@ Forever Home is a MERN application for a non-profit, no-kill animal shelter that
 * Filter by species of adoptable animals
 * Filter by sex of adoptable animals
 * Filter by age of adoptable animals
+* Pagination
 * Animals list pagination
 * Animal profile pages
 * Donation Form
 
 
 
-### :computer: Tech/Framework Used
+### :computer: Tech/Framework/Libraries Used
 * React with Functional Components & Hooks
 * React router
 * React-Bootstrap UI library
 * Node
 * Express
-* MongoDB database and the Mongoose
+* MongoDB and Mongoose
 
 
 ### :page_with_curl: API Endpoints
