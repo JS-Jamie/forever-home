@@ -25,7 +25,3 @@ Forever Home is a MERN application for a non-profit, no-kill animal shelter that
 * Node
 * Express
 * MongoDB and Mongoose
-
-
-### :page_with_curl: API Endpoints
-...
