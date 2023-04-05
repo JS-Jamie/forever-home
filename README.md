@@ -1,6 +1,6 @@
 # Forever Home
 
-Forever Home is a MERN application for a non-profit, no-kill animal shelter that rescues animals and finds forever homes for them. The idea was derived from my personal plan to run a small animal shelter in my senior years. This application supports the shelter’s mission to give back to the society and help animals.
+Forever Home is a MERN application for a non-profit, no-kill animal shelter that rescues animals and finds forever homes for them. This application supports the shelter’s mission to give back to the society and help animals.
 
 Check out the website [**here**](https://forever-home-js-jamie.koyeb.app/) :)
 
